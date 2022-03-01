@@ -1,16 +1,16 @@
 package com.first.demo.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "tblProduct")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // tự tăng
     private Long id;
 
+    //validate = constaint
+    @Column(nullable = false, unique = true, length = 300)
     private String productName;
 
     private int year;
